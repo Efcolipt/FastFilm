@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}Fast Film{% endblock %}</title>
+	<!-- Media -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+
+	<!-- Meta for search -->
+	<meta name="robots" content="index, follow">
+	<meta name="keywords" content="Фильмы , новики">
+	<meta name="description" content="Создание и продвижение сайтов в Санкт-Петербурге - digital-агентство Libils Team - создаем и продвигаем современные и продающие сайты.">
+	<meta name="author" content="Libils Team">
+	<meta name="copyright" content="Libils Team">
+
+	<!-- Open Graph Meta -->
+	<meta property="og:title" content="Фильм и сериалы">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:description" content="Создание и продвижение сайтов в Санкт-Петербурге - digital-агентство Libils Team - создаем и продвигаем современные и продающие сайты.">
+	<meta property="og:image" content="{% static 'img/logo/linkedin_banner_image_2.png' %}">
+	<meta property="og:site_name" content="Fast Film">
+	<meta property="og:url" content="">
+	<meta property="og:type" content="website">
+
+
+	<!-- Meta Google  -->
+	<meta itemprop="name" content="Fast Film" />
+	<meta itemprop="description" content="Создание и продвижение сайтов в Санкт-Петербурге - digital-агентство Libils Team - создаем и продвигаем современные и продающие сайты." />
+	<meta itemprop="image" content="{% static 'img/logo/linkedin_banner_image_2.png' %}" />
+
+
+	<!-- For media app -->
+	<link rel="apple-touch-icon" sizes="57x57" href="{% static 'img/favicon/favicon.png' %}">
+	<!-- Css -->
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+	<link rel="stylesheet" href="{% static 'css/message.css' %}">
+	<link rel="stylesheet" href="{% static 'css/media.css' %}">
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="{% static 'img/favicon/favicon.png' %}" type="image/png">
+</head>
+<body>
+	<header>
+		<div class="container">
+			<div class="top_menu">
+				<div class="nav-brand"><img src="{% static 'img/header/barIconForMobil.png' %}" class="iconBarMobile" alt="">
+					<a href="/">Fast Film Beta</a></div>	
+				<ul class="navbar">
+					<li><a href="/movie">Фильмы</a></li>
+					<li><a href="/series">Сериалы</a></li>
+					<li><a href="/mult">Мультфильмы</a></li>
+					<li><a href="/contact">О нас</a></li>
+
+				</ul>
+				<div class="subscribe">
+					<a href="#" class="btn--default">Оформить подписку</a>
+				</div>
+				<div class="block_auth--reg_search">
+					<div class="search">
+						<input type="text" id="search" placeholder="Найти?" name="search" data-id="0">
+						<svg width="18" id="searching" height="18" viewBox="0 0 18 18" fill="none"><title></title><path fill-rule="evenodd" clip-rule="evenodd" d="M13.9499 12.4702C15.9598 9.71455 15.6403 5.74064 13.048 3.14826C10.193 0.293337 5.66259 0.195039 2.92892 2.92871C0.195246 5.66238 0.293543 10.1928 3.14847 13.0478C5.74081 15.6401 9.71462 15.9596 12.4703 13.9498C12.5259 14.1145 12.6194 14.2692 12.7506 14.4004L15.4212 17.071C15.8768 17.5266 16.6155 17.5266 17.0711 17.071C17.5267 16.6154 17.5267 15.8767 17.0711 15.4211L14.4005 12.7505C14.2693 12.6193 14.1146 12.5259 13.9499 12.4702ZM11.7161 11.7166C13.6296 9.80299 13.5608 6.63167 11.5624 4.63322C9.56394 2.63478 6.39262 2.56597 4.47905 4.47954C2.56548 6.39311 2.63429 9.56442 4.63274 11.5629C6.63119 13.5613 9.8025 13.6301 11.7161 11.7166Z" fill="#fff"></path></svg>
+					</div>
+
+					<div class="auth_reg">
+						<button class="profile"><img src="{% static 'img/header/profile.svg' %}" alt="profile"><img src="{% static 'img/header/loginArrow.svg' %}" alt="loginArrow"></button><div class="profileMenu " style="display:none;">
+							<div class="topUr"></div>
+							<ul>
+								<li><a href="/account/login">Авторизоваться</a></li>
+								<li><a href="/account/register">Зарегистрироваться</a></li>
+							</ul>
+						</div>								
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+		<div class="mobile__menu">
+			<div class="container">
+				<ul>
+					<li><a href="/movie">Фильмы</a></li>
+					<li><a href="/series">Сериалы</a></li>
+					<li><a href="/mult">Мультфильмы</a></li>
+					<li><a href="/contact">Контакты</a></li>
+					<li><div class="subscribe">
+						<a href="#" class="btn--default">Оформить подписку</a>
+					</div></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<main><div class="container">{% block content %}{% endblock %}</div></main>
+	<footer>
+		<hr class="cl_idkq0">
+		<div class="container">
+			<div class="soc__icon__copy">
+				<p><a href="https://vk.com/libils_team"><i class="fab fa-vk" aria-hidden="true"></i></a> </p>
+				<p class="copy--me"> © 2020 Copyright: Libils Team</p>
+				<p class="release">Relese v1.0.0</p>
+			</div>
+		</div>
+	</footer>
+
+	<script async="" src="https://kit.fontawesome.com/de8f891afd.js"></script>
+	<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+	<script async="" src="{% static 'js/main.js' %}"></script>
+	<script async="" src="{% static 'js/other.js' %}"></script>
+	<script async="" src="{% static 'js/message.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+	{% block title %}{{result.title}}{{result.name}}{% endblock %}
+{%block content%}
+{% if movie_tracker %}
+	<h2 style="color:#fff; text-align: center; margin-top: 20px;margin-bottom: 20px">Фильм {{result.title}}</h2>
+{% else %}
+	<h2 style="color:#fff; text-align: center; margin-top: 20px;margin-bottom: 20px">Сериал {{result.name}}</h2>
+{% endif %}
+<div class="waitingSpin">
+	<div class="spinner"></div>
+</div>
+<div class="movies">
+	{% if movie_tracker %}
+	<div class="about--watch--now--film" data-id="{{result.imdb_id}}" >
+		<div class="poster--img--watch--now--film">
+			<img src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}" alt="{{result.title}}">
+		</div>
+		<div class="description--film--now--watch">
+			<div class="title--now--film--watch">{{result.title}}<span class="quanity--now--film--watch">HD</span><span class="quanity--now--film--watch">12+</span></div>
+			<div class="sl"><p>Слоган: {{result.tagline}}</p></div>
+			<div class="year--film--now--watch"><p>Дата выхода: {{result.release_date}}</p></div>
+			<div class="country--now--film--watch"><p>{{result.production_countries}}</p></div>
+			<div class="genres--now--film--watch"><p>{{result.genres}}</p></div>
+			<div class="actors--now--film--watch"><p>Бюджет:{{result.budget}}$ </p></div>
+			<div class="rait--now--film--watch"><p>Рейтинг: {{result.vote_average}}</p></div>
+			<div class="desc--now--film--watch"><p>Описание: {{result.overview}}</p></div>
+		</div>
+	</div>
+	{% else %}
+	<div class="about--watch--now--film" data-id="{{result.id}}" >
+		<div class="poster--img--watch--now--film">
+			<img src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}" alt="{{result.name}}">
+		</div>
+		<div class="description--film--now--watch">
+			<div class="title--now--film--watch">{{result.name}}<span class="quanity--now--film--watch">HD</span><span class="quanity--now--film--watch">12+</span></div>
+			<div class="year--film--now--watch"><p>Дата выхода: {{result.first_air_date}}</p></div>
+			<div class="genres--now--film--watch"><p>{{result.genres}}</p></div>
+			<div class="actors--now--film--watch"><p>Средний показатель серии: {{result.episode_run_time.0}} мин </p></div>
+			<div class="sl"><p>Кол-во эпизодов: {{result.number_of_episodes}} </p></div>
+			<div class="sl"><p>Кол-во сезонов: {{result.number_of_seasons}} </p></div>
+			<div class="rait--now--film--watch"><p>Рейтинг: {{result.vote_average}}</p></div>
+			<div class="desc--now--film--watch"><p>Описание: {{result.overview}}</p></div>
+		</div>
+	</div>
+	{%  endif %}
+	<div class="tab_tr_fl" data-mt="m">
+
+<!-- <div class="swap_btns">
+			<p class="swap_on_movie">Смотреть фильм</p>
+			<p class="swap_on_trailer">Смотреть Трейлер</p>
+		</div> -->
+		{% if video == 404 %}
+		<p class="smallInfoAboutTranslater" style="text-align: center;">Фильм не найден , возможно фильм ещё не вышел в онлайн</p>
+		{% else %}
+		<div class="heplerFilmsblockTop">
+			<div class="players">
+				<a>Плеер 1</a>
+			</div>
+			<div class="complaint">
+				<span class="sendComplaint"><i class="fas fa-exclamation-triangle"></i> Есть жалоба ?</span>
+			</div>
+		</div>
+		<iframe class="video video_if vid_m" src="{{video.iframe_src}}" frameborder="0"  allowfullscreen></iframe>
+		<div class="heplerFilmsblockBottom">
+			<div class="addFavorites">
+				<a class="item__addFavorites">В избранное <i class="far fa-heart"></i></a >
+			</div>
+			<div class="sendInSocial">
+				<a class="item__sendInSocial" href="#"><i class="fab fa-vk"></i></a>
+				<a class="item__sendInSocial" href="#"><i class="fab fa-facebook-f"></i></a>
+				<a class="item__sendInSocial" href="#"><i class="fab fa-odnoklassniki"></i></a>
+				<a class="item__sendInSocial" href="#"><i class="fab fa-twitter"></i></a>
+				<a class="item__sendInSocial" href="#"><i class="fab fa-google-plus-g"></i></a>
+			</div>
+		</div>
+		{% endif %}
+	</div>
+
+</div>
+<div class="contact--block--us">
+	<div class="container">
+		<div class="movie__about__contact">
+			<h2>Fast Film онлайн кинотеатр</h2>
+			<p>Смот­реть он­лайн фильмы,сериалы,мультфильмы - в хо­ро­шем ка­че­стве на FastFilm.ru . На на­шем сай­те вы мо­же­те смот­реть он­лайн са­мые раз­но­об­раз­ные се­ри­а­лы, филь­мы. Все ви­део до­ступ­ны для про­смот­ра на смарт­фо­нах, план­ше­тах, на экра­нах ва­ших ком­пью­те­ров. FastFilm.ru – это кон­тент для людей.</p>
+		</div>
+	</div>
+</div>
+{% endblock %}

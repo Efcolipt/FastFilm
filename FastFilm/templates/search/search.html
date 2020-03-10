@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Поиск | {{query}}{% endblock %}
+{%block content%}
+<h2 style="color:#fff; text-align: center; margin-top: 20px;margin-bottom: 20px">Поиск</h2>
+<div class="waitingSpin">
+	<div class="spinner"></div>
+</div>
+<div class="movies">
+	{%  if  result.status_code == 34 or result.status_code == 7 or result.total_results == 0 %}
+		<h2 style="color:#fff; text-align: center; margin-top: 20px;margin-bottom: 20px">Ничего не найдено</h2>
+	{% else %}
+	{% for i in result.results %}
+		<div class="new_movie" data-id="{{i.id}}">
+			<a href="/see_movie/{{i.id}}" class="btn_href_see">
+				<div class="img--poster"><img src="https://image.tmdb.org/t/p/w500/{{i.poster_path}}"/></div>
+				<div class="about--film">
+					<div class="title--film"><p class="title__df__quality">{{i.title}}</p></div>
+					<div class="vote_average"> <p>Рейтинг imdb: {{i.vote_average}}</p></div>
+					<div class="quality__average"><p>HD</p></div>
+					<div class="year_genre--film" style="display: none;"><p>{{i.release_date}}</p></div>
+				</div>
+			</a>
+		</div>
+	{%endfor%}
+	{% endif %}
+</div>
+<div class="contact--block--us">
+	<div class="container">
+		<div class="movie__about__contact">
+			<h2>Fast Film онлайн кинотеатр</h2>
+			<p>Смот­реть он­лайн фильмы,сериалы,мультфильмы - в хо­ро­шем ка­че­стве на FastFilm.ru . На на­шем сай­те вы мо­же­те смот­реть он­лайн са­мые раз­но­об­раз­ные се­ри­а­лы, филь­мы. Все ви­део до­ступ­ны для про­смот­ра на смарт­фо­нах, план­ше­тах, на экра­нах ва­ших ком­пью­те­ров. FastFilm.ru – это кон­тент для людей.</p>
+		</div>
+	</div>
+</div>
+{% endblock %}
