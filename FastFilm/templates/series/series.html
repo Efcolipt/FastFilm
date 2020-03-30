@@ -3,18 +3,19 @@
 
 {% block title %}Сериалы{% endblock %}
 {%block content%}
-<h2 style="color:#fff; text-align: center; margin-top: 20px;margin-bottom: 20px">Сериалы</h2>
-<div class="waitingSpin">
-	<div class="spinner"></div>
-</div>
-<div class="movies">
-	{%  if  result.status_code == 34 or result.status_code == 7 %}
-	<h2 style="color:#fff; text-align: center; margin-top: 20px;margin-bottom: 20px">Сериалов нет</h2>
+<div class="container">
+	<h2 style="color:#fff; text-align: center; margin-top: 20px;margin-bottom: 20px">Сериалы</h2>
+	<div class="waitingSpin">
+		<div class="spinner"></div>
+	</div>
+	<div class="movies">
+		{%  if  result.status_code == 34 or result.status_code == 7 %}
+		<h2 style="color:#fff; text-align: center; margin-top: 20px;margin-bottom: 20px">Сериалов нет</h2>
 
-	{% else %}
-	{% for i in result.results %}
+		{% else %}
+		{% for i in result.results %}
 		<div class="new_movie" data-id="{{i.id}}">
-			<a href="/see/{{i.id}}?series={{i.id}}" class="btn_href_see">
+			<a href="/see?series={{i.id}}" class="btn_href_see">
 				<div class="img--poster"><img src="https://image.tmdb.org/t/p/w500/{{i.poster_path}}" /></div>
 				<div class="about--film">
 					<div class="title--film"><p class="title__df__quality">{{i.name}}</p></div>
@@ -24,13 +25,14 @@
 				</div>
 			</a>
 		</div>
-	{%endfor%}
+		{%endfor%}
+		{% endif %}
+	</div>
+	{%  if  result.status_code != 34 or result.status_code != 7 %}
+	<div class="pagination" data-id = "{{result.total_pages}}">
+	</div>
 	{% endif %}
 </div>
-{%  if  result.status_code != 34 or result.status_code != 7 %}
-<div class="pagination" data-id = "{{result.total_pages}}">
-</div>
-{% endif %}
 <div class="contact--block--us">
 	<div class="container">
 		<div class="movie__about__contact">

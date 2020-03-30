@@ -1,49 +1,52 @@
 {% extends 'base.html' %}
-	{% block title %}{{result.title}}{{result.name}}{% endblock %}
+{% block title %}{{result.title}}{{result.name}}{% endblock %}
 {%block content%}
-{% if movie_tracker %}
-	<h2 style="color:#fff; text-align: center; margin-top: 20px;margin-bottom: 20px">Фильм {{result.title}}</h2>
-{% else %}
-	<h2 style="color:#fff; text-align: center; margin-top: 20px;margin-bottom: 20px">Сериал {{result.name}}</h2>
-{% endif %}
-<div class="waitingSpin">
-	<div class="spinner"></div>
-</div>
-<div class="movies">
+<div class="container">
 	{% if movie_tracker %}
-	<div class="about--watch--now--film" data-id="{{result.imdb_id}}" >
-		<div class="poster--img--watch--now--film">
-			<img src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}" alt="{{result.title}}">
-		</div>
-		<div class="description--film--now--watch">
-			<div class="title--now--film--watch">{{result.title}}<span class="quanity--now--film--watch">HD</span><span class="quanity--now--film--watch">12+</span></div>
-			<div class="sl"><p>Слоган: {{result.tagline}}</p></div>
-			<div class="year--film--now--watch"><p>Дата выхода: {{result.release_date}}</p></div>
-			<div class="country--now--film--watch"><p>{{result.production_countries}}</p></div>
-			<div class="genres--now--film--watch"><p>{{result.genres}}</p></div>
-			<div class="actors--now--film--watch"><p>Бюджет:{{result.budget}}$ </p></div>
-			<div class="rait--now--film--watch"><p>Рейтинг: {{result.vote_average}}</p></div>
-			<div class="desc--now--film--watch"><p>Описание: {{result.overview}}</p></div>
-		</div>
-	</div>
+	<h2 style="color:#fff; text-align: center; margin-top: 20px;margin-bottom: 20px">Фильм {{result.title}}</h2>
 	{% else %}
-	<div class="about--watch--now--film" data-id="{{result.id}}" >
-		<div class="poster--img--watch--now--film">
-			<img src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}" alt="{{result.name}}">
-		</div>
-		<div class="description--film--now--watch">
-			<div class="title--now--film--watch">{{result.name}}<span class="quanity--now--film--watch">HD</span><span class="quanity--now--film--watch">12+</span></div>
-			<div class="year--film--now--watch"><p>Дата выхода: {{result.first_air_date}}</p></div>
-			<div class="genres--now--film--watch"><p>{{result.genres}}</p></div>
-			<div class="actors--now--film--watch"><p>Средний показатель серии: {{result.episode_run_time.0}} мин </p></div>
-			<div class="sl"><p>Кол-во эпизодов: {{result.number_of_episodes}} </p></div>
-			<div class="sl"><p>Кол-во сезонов: {{result.number_of_seasons}} </p></div>
-			<div class="rait--now--film--watch"><p>Рейтинг: {{result.vote_average}}</p></div>
-			<div class="desc--now--film--watch"><p>Описание: {{result.overview}}</p></div>
-		</div>
+	<h2 style="color:#fff; text-align: center; margin-top: 20px;margin-bottom: 20px">Сериал {{result.name}}</h2>
+	{% endif %}
+	<div class="waitingSpin">
+		<div class="spinner"></div>
 	</div>
-	{%  endif %}
-	<div class="tab_tr_fl" data-mt="m">
+</div>
+<div class="watch_video">
+	<div class="container">
+		{% if movie_tracker %}
+		<div class="about--watch--now--film" data-id="{{result.imdb_id}}" >
+			<div class="poster--img--watch--now--film">
+				<img src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}" alt="{{result.title}}">
+			</div>
+			<div class="description--film--now--watch">
+				<div class="title--now--film--watch">{{result.title}}<span class="quanity--now--film--watch">HD</span><span class="quanity--now--film--watch">12+</span></div>
+				<div class="sl"><p>Слоган: {{result.tagline}}</p></div>
+				<div class="year--film--now--watch"><p>Дата выхода: {{result.release_date}}</p></div>
+				<div class="country--now--film--watch"><p>{{result.production_countries}}</p></div>
+				<div class="genres--now--film--watch"><p>{{result.genres}}</p></div>
+				<div class="actors--now--film--watch"><p>Бюджет:{{result.budget}}$ </p></div>
+				<div class="rait--now--film--watch"><p>Рейтинг: {{result.vote_average}}</p></div>
+				<div class="desc--now--film--watch"><p>Описание: {{result.overview}}</p></div>
+			</div>
+		</div>
+		{% else %}
+		<div class="about--watch--now--film" data-id="{{result.id}}" >
+			<div class="poster--img--watch--now--film">
+				<img src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}" alt="{{result.name}}">
+			</div>
+			<div class="description--film--now--watch">
+				<div class="title--now--film--watch">{{result.name}}<span class="quanity--now--film--watch">HD</span><span class="quanity--now--film--watch">12+</span></div>
+				<div class="year--film--now--watch"><p>Дата выхода: {{result.first_air_date}}</p></div>
+				<div class="genres--now--film--watch"><p>{{result.genres}}</p></div>
+				<div class="actors--now--film--watch"><p>Средний показатель серии: {{result.episode_run_time.0}} мин </p></div>
+				<div class="sl"><p>Кол-во эпизодов: {{result.number_of_episodes}} </p></div>
+				<div class="sl"><p>Кол-во сезонов: {{result.number_of_seasons}} </p></div>
+				<div class="rait--now--film--watch"><p>Рейтинг: {{result.vote_average}}</p></div>
+				<div class="desc--now--film--watch"><p>Описание: {{result.overview}}</p></div>
+			</div>
+		</div>
+		{%  endif %}
+		<div class="tab_tr_fl" data-mt="m">
 
 <!-- <div class="swap_btns">
 			<p class="swap_on_movie">Смотреть фильм</p>
@@ -62,7 +65,7 @@
 		</div>
 		<iframe class="video video_if vid_m" src="{{video.iframe_src}}" frameborder="0"  allowfullscreen></iframe>
 		<div class="heplerFilmsblockBottom">
-			<div class="addFavorites">
+			<div class="addFavorites" data-sfc = '800'>
 				<a class="item__addFavorites">В избранное <i class="far fa-heart"></i></a >
 			</div>
 			<div class="sendInSocial">
@@ -75,7 +78,49 @@
 		</div>
 		{% endif %}
 	</div>
+	{% if movie_tracker %}
+	<h2 style="color:#fff; text-align: center; margin-top: 40px;margin-bottom: 30px">Похожие фильмы </h2>
+	{% else %}
+	<h2 style="color:#fff; text-align: center; margin-top: 40px;margin-bottom: 30px">Похожие сериалы </h2>
+	{% endif %}
 
+</div>	
+<div class="similar_bg">
+	<div class="container">
+		<div class="similar_slider">
+			{% if movie_tracker %}
+			{% for i in similar %}
+			<div class="new_movie" data-id="{{i.id}}">
+				<a href="/see?movie={{i.id}}" class="btn_href_see">
+					<div class="img--poster"><img src="https://image.tmdb.org/t/p/w500/{{i.poster_path}}" /></div>
+					<div class="about--film">
+						<div class="title--film"><p class="title__df__quality">{{i.title}}</p></div>
+						<div class="vote_average"> <p>Рейтинг imdb: {{i.vote_average}}</p></div>
+						<div class="quality__average"><p>HD</p></div>
+						<div class="year_genre--film" style="display: none;"><p>{{i.release_date}}</p></div>
+					</div>
+				</a>
+			</div>
+			{%endfor%}
+			{%else%}
+			{% for i in similar %}
+			<div class="new_movie" data-id="{{i.id}}">
+				<a href="/see?series={{i.id}}" class="btn_href_see">
+					<div class="img--poster"><img src="https://image.tmdb.org/t/p/w500/{{i.poster_path}}" /></div>
+					<div class="about--film">
+						<div class="title--film"><p class="title__df__quality">{{i.name}}</p></div>
+						<div class="vote_average"> <p>Рейтинг imdb: {{i.vote_average}}</p></div>
+						<div class="quality__average"><p>HD</p></div>
+						<div class="year_genre--film" style="display: none;"><p>{{i.first_air_date}}</p></div>
+					</div>
+				</a>
+			</div>
+			{%endfor%}
+			{%endif%}
+
+		</div>
+	</div>
+</div>
 </div>
 <div class="contact--block--us">
 	<div class="container">

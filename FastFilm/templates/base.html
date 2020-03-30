@@ -39,6 +39,7 @@
 	<link rel="stylesheet" href="{% static 'css/main.css' %}">
 	<link rel="stylesheet" href="{% static 'css/message.css' %}">
 	<link rel="stylesheet" href="{% static 'css/media.css' %}">
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="{% static 'img/favicon/favicon.png' %}" type="image/png">
 </head>
@@ -92,16 +93,34 @@
 			</div>
 		</div>
 	</header>
-	<main><div class="container">{% block content %}{% endblock %}</div></main>
+	<main>
+		<div class="message-alert"></div>
+		{% block content %}
+		{% endblock %}
+	</main>
 	<footer>
-		<hr class="cl_idkq0">
-		<div class="container">
-			<div class="soc__icon__copy">
-				<p><a href="https://vk.com/libils_team"><i class="fab fa-vk" aria-hidden="true"></i></a> </p>
-				<p class="copy--me"> © 2020 Copyright: Libils Team</p>
-				<p class="release">Relese v1.0.0</p>
+		<div class="footer__content">
+			<div class="container">
+				<div class="inner__footer__content">
+					<div class="mini__menu__footer">
+						<a class="item__mini__menu__footer" href="#">Контакты</a>
+						<a class="item__mini__menu__footer" href="#">Помощь</a>
+						<a class="item__mini__menu__footer" href="#">Правообладателям</a>
+					</div>
+					<div class="about__ver__footer">
+						<p class="patch">Patch v2.0</p>
+						<p class="release">Release v1.0.0</p>
+						<p class="years__works__with__copy">© 2017-2020 Libils Team</p>
+					</div>
+				</div>
 			</div>
 		</div>
+			<!-- <div class="soc__icon__copy">
+				<p><a href="https://vk.com/libils_team"><i class="fab fa-vk" aria-hidden="true"></i></a> </p>
+				<p class="copy--me"> © 2020 Copyright: Libils Team</p>
+				<p class="release">Relese v1.0.0 </p>
+				<p class="release">Patch  v1.0.0 </p>
+			</div> -->
 	</footer>
 
 	<script async="" src="https://kit.fontawesome.com/de8f891afd.js"></script>
@@ -109,8 +128,10 @@
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
+  	<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script async="" src="{% static 'js/message.js' %}"></script>
 	<script async="" src="{% static 'js/main.js' %}"></script>
 	<script async="" src="{% static 'js/other.js' %}"></script>
-	<script async="" src="{% static 'js/message.js' %}"></script>
+
 </body>
 </html>

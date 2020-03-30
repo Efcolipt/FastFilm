@@ -1,10 +1,9 @@
-
 console.time("Module enabled Main ");
 let hrefCurrent  = window.location.href;
 let protocoll 	 = document.location.protocol;
 $('.waitingSpin').stop().fadeOut(1000);
 let pathnameWs = window.location.pathname;
-pathnameWs = pathnameWs.split('/')[1]
+pathnameWs = pathnameWs.split('/')[1];
 
 
 function reYear() {
@@ -15,7 +14,15 @@ function reYear() {
 		$(this).find('.year_genre--film').css('display','block');
 	});
 }
-
+$('.addFavorites').click(function () {
+	let sfc = $(this).attr('data-sfc');
+	if (+sfc == 800){
+		$(this).attr('data-sfc',200);
+		addMess('Добавлено в избранное !', 200);
+	}else if (+sfc == 200){
+		addMess('Уже добавленно!', 800);
+	}
+});
 // Search
 function isEmpty(str) {
 	if (str.trim() == '') 
@@ -24,11 +31,12 @@ function isEmpty(str) {
 	return false;
 }
 
-// Search
 $('#searching').click(function(event) {
 	let query = $('#search').val();
 	if (isEmpty(query) == false) {
 		location.href = window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + "/" + "search/" +  query;
+	}else{
+		alert("Введите данные для поиска");
 	}
 });
 // end Search
@@ -40,6 +48,31 @@ if (pathnameWs == "movie" || pathnameWs == "series" ){
 
 if (pathnameWs == "see" ){
 	reFilmSeeData();
+	similarSlider();
+}
+
+
+
+function similarSlider() {
+		$('.similar_slider').slick({
+		infinite: true,
+		slidesToShow: 5,
+		slidesToScroll: 5,
+		arrows:true,
+		prevArrow:'<button type="button" class="slick-prev"><</button>',
+		nextArrow:'<button type="button" class="slick-next">></button>',
+		responsive: [
+		{
+			breakpoint: 768,
+			settings: {
+				slidesToShow: 1,
+				slidesToScroll: 1
+			}
+		}
+		]
+
+	});	
+
 }
 
 function reFilmSeeData() {
@@ -70,7 +103,8 @@ function reFilmSeeData() {
 function pagination() {
 	let  current_page = window.location.pathname;
 	current_page = current_page.split('/')[2];
-	if ( current_page != 1 && current_page > 5 && ((current_page + 5) < $('.pagination').attr('data-id'))) {
+	console.log(current_page);
+	if (  current_page > 5 && ((current_page + 5) < $('.pagination').attr('data-id'))) {
 		$('.pagination').append(`
 			<a  class="pag_item" href="/${pathnameWs}/${+current_page - 1}"><</a>
 			<a  class="pag_item" href="/${pathnameWs}/${+current_page - 4}">${+current_page - 4}</a>
@@ -84,7 +118,7 @@ function pagination() {
 			<a  class="pag_item" href="/${pathnameWs}/${+current_page + 4}">${+current_page + 4}</a>
 			<a  class="pag_item" href="/${pathnameWs}/${+current_page + 1}">></a>
 			`);
-	}else if (current_page != 1 && current_page < 5 &&((current_page + 5) < $('.pagination').attr('data-id'))){
+	}else if (current_page > 1 && current_page < 5 &&((current_page + 5) < $('.pagination').attr('data-id'))){
 		$('.pagination').append(`
 			<a  class="pag_item" href="/${pathnameWs}/${+current_page - 1}"><</a>
 			<a  class="pag_item" href="/${pathnameWs}/${+current_page - 1}">${+current_page - 1}</a>
@@ -99,18 +133,31 @@ function pagination() {
 			<a  class="pag_item" href="/${pathnameWs}/${+current_page + 8}">${+current_page + 8}</a>
 			<a  class="pag_item" href="/${pathnameWs}/${+current_page + 1}">></a>
 			`);
-	}else if ((current_page + 5) < $('.pagination').attr('data-id')){
+	}else if (current_page == 1){
 		$('.pagination').append(`
 			<span class="pag_item pag_active">${current_page}</span>
 			<a  class="pag_item" href="/${pathnameWs}/${+current_page + 1}">${+current_page + 1}</a>
-			<a  class="pag_item" href="/${pathnameWs}/${+current_page + 2}">${+current_page + 3}</a>
+			<a  class="pag_item" href="/${pathnameWs}/${+current_page + 2}">${+current_page + 2}</a>
 			<a  class="pag_item" href="/${pathnameWs}/${+current_page + 3}">${+current_page + 3}</a>
 			<a  class="pag_item" href="/${pathnameWs}/${+current_page + 4}">${+current_page + 4}</a>
 			<a  class="pag_item" href="/${pathnameWs}/${+current_page + 5}">${+current_page + 5}</a>
 			<a  class="pag_item" href="/${pathnameWs}/${+current_page + 6}">${+current_page + 6}</a>
 			<a  class="pag_item" href="/${pathnameWs}/${+current_page + 7}">${+current_page + 7}</a>
 			<a  class="pag_item" href="/${pathnameWs}/${+current_page + 8}">${+current_page + 8}</a>
-			<a  class="pag_item" href="/${pathnameWs}/${+current_page + 9}">${+current_page + 9}</a>
+			<a  class="pag_item" href="/${pathnameWs}/${+current_page + 1}">></a>
+			`);
+	}else{
+		$('.pagination').append(`
+			<a  class="pag_item" href="/${pathnameWs}/${+current_page - 1}"><</a>
+			<a  class="pag_item" href="/${pathnameWs}/${+current_page - 4}">${+current_page - 4}</a>
+			<a  class="pag_item" href="/${pathnameWs}/${+current_page - 3}">${+current_page - 3}</a>
+			<a  class="pag_item" href="/${pathnameWs}/${+current_page - 2}">${+current_page - 2}</a>
+			<a  class="pag_item" href="/${pathnameWs}/${+current_page - 1}">${+current_page - 1}</a>
+			<span class="pag_item pag_active">${current_page}</span>
+			<a  class="pag_item" href="/${pathnameWs}/${+current_page + 1}">${+current_page + 1}</a>
+			<a  class="pag_item" href="/${pathnameWs}/${+current_page + 2}">${+current_page + 2}</a>
+			<a  class="pag_item" href="/${pathnameWs}/${+current_page + 3}">${+current_page + 3}</a>
+			<a  class="pag_item" href="/${pathnameWs}/${+current_page + 4}">${+current_page + 4}</a>
 			<a  class="pag_item" href="/${pathnameWs}/${+current_page + 1}">></a>
 			`);
 	}

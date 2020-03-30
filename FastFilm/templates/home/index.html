@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 {% block title %}Главная{% endblock %}
 {%block content%}
-<div class="waitingSpin">
-	<div class="spinner"></div>
-</div>
+<div class="container">
+	<div class="waitingSpin">
+		<div class="spinner"></div>
+	</div>
 	{%  if  upcoming.status_code == 34 or upcoming.status_code == 7 or top.status_code == 34 or top.status_code == 7   %}
 	<h2 style="color:#fff; text-align: center; margin-top: 20px;margin-bottom: 20px">Ничего не нашел</h2>
 	{% else %}
 	<h2 style="color:#fff; text-align: center; margin-top: 20px;margin-bottom: 20px">Популярное</h2>
 	<div class="movies">
-	{% for i in upcoming.results %}
+		{% for i in upcoming.results %}
 		<div class="new_movie" data-id="{{i.id}}">
-			<a href="/see/{{i.id}}" class="btn_href_see">
+			<a href="/see?movie={{i.id}}" class="btn_href_see">
 				<div class="img--poster"><img src="https://image.tmdb.org/t/p/w500/{{i.poster_path}}" /></div>
 				<div class="about--film">
 					<div class="title--film"><p class="title__df__quality">{{i.title}}</p></div>
@@ -21,13 +22,13 @@
 				</div>
 			</a>
 		</div>
-	{%endfor%}
+		{%endfor%}
 	</div>
 	<h2 style="color:#fff; text-align: center; margin-top: 20px;margin-bottom: 20px">Fastfilm.ru рекомендует</h2>
 	<div class="movies">
-	{% for i in top.results %}
+		{% for i in top.results %}
 		<div class="new_movie" data-id="{{i.id}}">
-			<a href="/see/{{i.id}}" class="btn_href_see">
+			<a href="/see?movie={{i.id}}" class="btn_href_see">
 				<div class="img--poster"><img src="https://image.tmdb.org/t/p/w500/{{i.poster_path}}" /></div>
 				<div class="about--film">
 					<div class="title--film"><p class="title__df__quality">{{i.title}}</p></div>
@@ -37,9 +38,10 @@
 				</div>
 			</a>
 		</div>
-	{%endfor%}
+		{%endfor%}
 	</div>
 	{% endif %}
+</div>
 <div class="contact--block--us">
 	<div class="container">
 		<div class="movie__about__contact">

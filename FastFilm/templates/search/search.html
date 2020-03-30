@@ -1,17 +1,19 @@
 {% extends 'base.html' %}
 {% block title %}Поиск | {{query}}{% endblock %}
 {%block content%}
-<h2 style="color:#fff; text-align: center; margin-top: 20px;margin-bottom: 20px">Поиск</h2>
-<div class="waitingSpin">
-	<div class="spinner"></div>
-</div>
-<div class="movies">
-	{%  if  result.status_code == 34 or result.status_code == 7 or result.total_results == 0 %}
+<div class="container">
+	<h2 style="color:#fff; text-align: center; margin-top: 20px;margin-bottom: 20px">Поиск по вашему запросу: '{{query}}'</h2>
+	<div class="waitingSpin">
+		<div class="spinner"></div>
+	</div>
+	<div class="movies">
+		{%  if  error == True %}
 		<h2 style="color:#fff; text-align: center; margin-top: 20px;margin-bottom: 20px">Ничего не найдено</h2>
-	{% else %}
-	{% for i in result.results %}
+		{% else %}
+		{% for i in result.results %}
+		{% if i.media_type == 'movie'%}
 		<div class="new_movie" data-id="{{i.id}}">
-			<a href="/see_movie/{{i.id}}" class="btn_href_see">
+			<a href="/see?movie={{i.id}}" class="btn_href_see">
 				<div class="img--poster"><img src="https://image.tmdb.org/t/p/w500/{{i.poster_path}}"/></div>
 				<div class="about--film">
 					<div class="title--film"><p class="title__df__quality">{{i.title}}</p></div>
@@ -21,8 +23,22 @@
 				</div>
 			</a>
 		</div>
-	{%endfor%}
-	{% endif %}
+		{%else%}
+		<div class="new_movie" data-id="{{i.id}}">
+			<a href="/see?series={{i.id}}" class="btn_href_see">
+				<div class="img--poster"><img src="https://image.tmdb.org/t/p/w500/{{i.poster_path}}"/></div>
+				<div class="about--film">
+					<div class="title--film"><p class="title__df__quality">{{i.name}}</p></div>
+					<div class="vote_average"> <p>Рейтинг imdb: {{i.vote_average}}</p></div>
+					<div class="quality__average"><p>HD</p></div>
+					<div class="year_genre--film" style="display: none;"><p>{{i.first_air_date}}</p></div>
+				</div>
+			</a>
+		</div>
+		{%endif%}
+		{%endfor%}
+		{% endif %}
+	</div>
 </div>
 <div class="contact--block--us">
 	<div class="container">

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,700|Rubik:400,500&display=swap&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700|Rubik:400,500|Ubuntu&display=swap&subset=cyrillic');
 *{
 	margin: 0;
 	padding: 0;
@@ -8,16 +8,15 @@
 
 }
 body,html{
-	height: 100%;
-	font-family: 'Rubik','Fira Sans',sans-serif;
-	background-color:#141414;
+	font-family: 'Rubik','Ubuntu',sans-serif;
+	background:url('../img/bg/bg.png');
 }
 p,a,span,small,button,em,g,input{
-	font-family: 'Rubik',sans-serif!important;
+	font-family: 'Rubik','Ubuntu',sans-serif!important;
 	font-weight: normal;
 }
 h1,h2,h3,h4,h5,h6{
-	font-family: 'Fira Sans',sans-serif!important;
+	font-family: 'PT Sans',sans-serif!important;
 	font-weight: bold;
 }
 h1{
@@ -96,7 +95,7 @@ h3{
     z-index: 20;
     right: 0;
     border-radius: 4px;
-    background-color: #fff;
+    background-color:#1f1f1f;
     text-align: left;
     top: 50px;
 }
@@ -110,7 +109,7 @@ main{
 .profileMenu li  a {
 	font-size: 14px;
 	display: block;
-	color:#272727;
+	color:#fff;
 	 padding: 11px 30px 9px 22px;
 	transition:background .2s ease-in, color .1s ease-in;
 }
@@ -121,7 +120,7 @@ main{
     position: absolute;
     right: 30px;
     top: -3px;
-    background: #fff;
+    background:#1f1f1f;
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
 }
@@ -149,7 +148,7 @@ header{
     position: sticky;
     top: 0px;
     z-index: 999;
-    padding: 10px;
+    padding: 15px 0;
     transition: top .4s ease-in, background .4s ease-in;
 }
 .hideHeader{
@@ -291,6 +290,34 @@ input{
 .moviesSerach .new_movie{
     margin: 0 23px 40px!important;	
 }
+.similar_slider{
+	width: 100%;
+}
+.similar_slider .new_movie .img--poster  {
+	width: 100%!important;
+}
+.slick-arrow{
+	top: 0;
+	background: none;
+    font-size: 33px;
+    height: 100%;
+    border: 0;
+    color: #fff;
+    padding: 0 23px;
+    position: absolute;
+    opacity: 1;
+    z-index: 5;
+}
+.slick-next{
+	right: -50px;
+}
+.slick-prev{
+	left: -50px;
+}
+
+.similar_slider .new_movie  {
+    margin: 5px 15px 0px;
+}
 .new_movie{
 	position: relative;
 	border-radius:7px;
@@ -390,11 +417,9 @@ input{
 
 
 .smallInfoAboutTranslater{
-	margin-left: 15px;
-	margin-bottom: 15px;
-	color:#fff;
-	margin-top: 15px;
-	font-size: 20px;
+    color: #fff;
+    padding: 20px;
+    font-size: 22px;
 }
 
 .swap_btns {
@@ -424,7 +449,8 @@ input{
 }
 .about--watch--now--film{
 	width: 100%;
-	line-height: 27px;
+	overflow: hidden;
+	line-height: 26px;
 	display: -webkit-flex;
 	display: -moz-flex;
 	display: -ms-flex;
@@ -434,30 +460,45 @@ input{
 	background-color:#2323235c;
 	border-bottom-left-radius: 2px;
 	border-bottom-right-radius: 2px;
-    padding: 20px 10px;
 	margin-bottom: 45px;
 }
 .title--now--film--watch{
-    padding: 13px 0px;
+    padding: 18px 20px 18px 20px;
+    margin-top: 0 !important;
     margin-bottom: 25px;
-    border-radius: 3px;
-    background-color: #151515;
+    background-color: #23232366;
     font-size: 24px;
     color: #fff;
 }
+.watch_video{
+	width: 100%;
+	overflow: hidden;
+}
+.sl{
+	margin-top: 0 !important;
+}
+.year--film--now--watch,.sl,.country--now--film--watch,.genres--now--film--watch,.actors--now--film--watch,.rait--now--film--watch,.desc--now--film--watch{
+	margin-left: 20px;
+	margin-top: 7px;
+	margin-bottom: 7px;
+	margin-right: 20px;
+}
+.year--film--now--watch p,.sl p,.country--now--film--watch p,.genres--now--film--watch p,.actors--now--film--watch p,.rait--now--film--watch p,.desc--now--film--watch p{
+	font-size: 17px;
+}
 .description--film--now--watch{
-	margin-left: 25px;
-	    width: 100%;
+	width: 100%;
 }
 .poster--img--watch--now--film img {
-    width: 300px;
-    height: 100%;
-    border:2px solid #000;
+    width: 325px;
+    height: 487px;
+    border: 4px solid #000;
 }
-
-.description--film--now--watch > div {
-	margin-top: 5px;
-	padding-left: 10px;
+.poster--img--watch--now--film{
+	height: 495px;
+}
+.similar_bg{
+	width: 100%;
 }
 
 .video{
@@ -465,7 +506,7 @@ input{
 	height: 700px;
 }
 .tab_tr_fl{
-	background: #23232340;
+	background:#2323238c;
 	width: 100%;
 }
 .heplerFilmsblockBottom{
@@ -626,21 +667,15 @@ input{
 }
 .contact--block--us h2 {
 	 margin-top: 20px;
-	 font-size: 22px;
+	 font-size:36px;
 	 margin-bottom: 20px;
 
 }
-.copy--me{
-	margin-top: 0px!important;
-}
-.release{
-	margin-top: 0!important;
-	margin-bottom: 40px;
-}
+
 .contact--block--us p {
 	margin-top: 10px;
 	color:#b5b5b5;
-	font-size: 18px;
+	font-size: 19px;
 	line-height: 32px	;
 	text-align:left;
 }
@@ -653,6 +688,7 @@ input{
 	padding-right: 80px;
 }
 .movie__about__contact{
+	padding-top:30px;
 	padding-bottom: 40px;
 
 }
@@ -665,8 +701,50 @@ input{
     top: -100000000000px;
     left: 0;
 }
+/*Footer*/
+
+.footer__content{
+	background:#23232340;
+}
+.inner__footer__content{
+	padding: 35px 0;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-between;
+}
+.item__mini__menu__footer{
+	margin-left: 35px;
+	color:#fff;
+	font-size: 20px;
+	transition: color .3s ease;
+}
+.about__ver__footer{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-between;
+}
+
+.patch, .release, .years__works__with__copy{
+	margin-left: 35px;	
+	font-size: 18px;
+	color: #b5b5b5;
+}
+.years__works__with__copy{
+	margin-right: 35px;
+
+}
+.item__mini__menu__footer:hover{
+	color: #33c467;
+}
+/*End footer*/
 .quanity--now--film--watch{
-    margin-left: 7px;
+    margin-left: 10px;
     font-size: 14px;
     /* font-weight: bold; */
     color: #9e9d9d;
