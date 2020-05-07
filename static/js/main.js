@@ -4,6 +4,7 @@ let protocoll 	 = document.location.protocol;
 $('.waitingSpin').stop().fadeOut(1000);
 let pathnameWs = window.location.pathname;
 pathnameWs = pathnameWs.split('/')[1];
+dataHistory = JSON.parse(localStorage.getItem("dataHistory"));
 
 
 function reYear() {
@@ -19,8 +20,11 @@ $('.addFavorites').click(function () {
 	if (+sfc == 800){
 		$(this).attr('data-sfc',200);
 		addMess('Добавлено в избранное !', 200);
+		$(this).find('i').removeClass('far fa-heart').addClass('fas fa-heart');
 	}else if (+sfc == 200){
-		addMess('Уже добавленно!', 800);
+		$(this).attr('data-sfc',800);
+		addMess('Убрали из избранного !', 800);
+		$(this).find('i').removeClass('fas fa-heart').addClass('far fa-heart');
 	}
 });
 // Search
@@ -49,10 +53,30 @@ if (pathnameWs == "movie" || pathnameWs == "series" ){
 if (pathnameWs == "see" ){
 	reFilmSeeData();
 	similarSlider();
+	addHistory();
+	deskriptionOver();
 }
 
+function deskriptionOver(){
+	let txt = $(".desc--now--film--watch p > span:last").text().length;
+	console.log(txt);
+	if (txt > 450) {
+		$('.desc--now--film--watch').css('overflow-y',"scroll");
+	}
+}
+function addHistory() {
+	let [headline,year,quality,link] = [$('.headline--now--film--watch').text(),$('.year--film--now--watch p > span:last-child').text(),$('.rait--now--film--watch p > span:last-child').text(), 	$('.watch_video').attr('data-link')];
+	year = year.substring(0, 4);
+	data = [year,headline,quality,link];
+	if (dataHistory && JSON.stringify(dataHistory).includes(JSON.stringify(data)) == false ){
+		dataHistory.push(data);
+		localStorage.setItem('dataHistory', JSON.stringify(dataHistory));
+	}else if (JSON.stringify(dataHistory).includes(JSON.stringify(data)) == false ){
+		localStorage.setItem('dataHistory', JSON.stringify([data]));
+	}
+}
 
-
+// Similar films or series
 function similarSlider() {
 		$('.similar_slider').slick({
 		infinite: true,
@@ -75,6 +99,7 @@ function similarSlider() {
 
 }
 
+
 function reFilmSeeData() {
 	let country = $('.country--now--film--watch p').text();
 	let genre = $('.genres--now--film--watch p').text();
@@ -96,14 +121,13 @@ function reFilmSeeData() {
 		}
 	}
 	country[0] = country[0].substr(country[0].indexOf('name'),country[0].length).substr(country[0].indexOf('\'') - 1,country[0].length).slice(0,-3);
-	$('.country--now--film--watch p').text('Страна: ' + res_c.substr(0,res_c.length - 1));
-	$('.genres--now--film--watch p').text('Жанр: ' + res_g.substr(0,res_g.length - 1));
+	$('.country--now--film--watch p').text('Страны съёмок: ' + res_c.substr(0,res_c.length - 1));
+	$('.genres--now--film--watch p').html('<span>Жанр:</span> <span>' + res_g.substr(0,res_g.length - 1)) + '</span>';
 }
 // Pagination
 function pagination() {
 	let  current_page = window.location.pathname;
 	current_page = current_page.split('/')[2];
-	console.log(current_page);
 	if (  current_page > 5 && ((current_page + 5) < $('.pagination').attr('data-id'))) {
 		$('.pagination').append(`
 			<a  class="pag_item" href="/${pathnameWs}/${+current_page - 1}"><</a>

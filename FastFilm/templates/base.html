@@ -39,6 +39,7 @@
 	<link rel="stylesheet" href="{% static 'css/main.css' %}">
 	<link rel="stylesheet" href="{% static 'css/message.css' %}">
 	<link rel="stylesheet" href="{% static 'css/media.css' %}">
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}">
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="{% static 'img/favicon/favicon.png' %}" type="image/png">
@@ -49,89 +50,158 @@
 			<div class="top_menu">
 				<div class="nav-brand"><img src="{% static 'img/header/barIconForMobil.png' %}" class="iconBarMobile" alt="">
 					<a href="/">Fast Film Beta</a></div>	
-				<ul class="navbar">
-					<li><a href="/movie">Фильмы</a></li>
-					<li><a href="/series">Сериалы</a></li>
-					<li><a href="/mult">Мультфильмы</a></li>
-					<li><a href="/contact">О нас</a></li>
+					<ul class="navbar">
+						<li><a href="/movie">Фильмы</a></li>
+						<li><a href="/series">Сериалы</a></li>
+						<li><a href="/mult">Мультфильмы</a></li>
+						<li><a href="/contact">О нас</a></li>
 
-				</ul>
-				<div class="subscribe">
-					<a href="#" class="btn--default">Оформить подписку</a>
-				</div>
-				<div class="block_auth--reg_search">
-					<div class="search">
-						<input type="text" id="search" placeholder="Найти?" name="search" data-id="0">
-						<svg width="18" id="searching" height="18" viewBox="0 0 18 18" fill="none"><title></title><path fill-rule="evenodd" clip-rule="evenodd" d="M13.9499 12.4702C15.9598 9.71455 15.6403 5.74064 13.048 3.14826C10.193 0.293337 5.66259 0.195039 2.92892 2.92871C0.195246 5.66238 0.293543 10.1928 3.14847 13.0478C5.74081 15.6401 9.71462 15.9596 12.4703 13.9498C12.5259 14.1145 12.6194 14.2692 12.7506 14.4004L15.4212 17.071C15.8768 17.5266 16.6155 17.5266 17.0711 17.071C17.5267 16.6154 17.5267 15.8767 17.0711 15.4211L14.4005 12.7505C14.2693 12.6193 14.1146 12.5259 13.9499 12.4702ZM11.7161 11.7166C13.6296 9.80299 13.5608 6.63167 11.5624 4.63322C9.56394 2.63478 6.39262 2.56597 4.47905 4.47954C2.56548 6.39311 2.63429 9.56442 4.63274 11.5629C6.63119 13.5613 9.8025 13.6301 11.7161 11.7166Z" fill="#fff"></path></svg>
-					</div>
-
-					<div class="auth_reg">
-						<button class="profile"><img src="{% static 'img/header/profile.svg' %}" alt="profile"><img src="{% static 'img/header/loginArrow.svg' %}" alt="loginArrow"></button><div class="profileMenu " style="display:none;">
-							<div class="topUr"></div>
-							<ul>
-								<li><a href="/account/login">Авторизоваться</a></li>
-								<li><a href="/account/register">Зарегистрироваться</a></li>
-							</ul>
-						</div>								
-					</div>
-
-				</div>
-
-			</div>
-		</div>
-		<div class="mobile__menu">
-			<div class="container">
-				<ul>
-					<li><a href="/movie">Фильмы</a></li>
-					<li><a href="/series">Сериалы</a></li>
-					<li><a href="/mult">Мультфильмы</a></li>
-					<li><a href="/contact">Контакты</a></li>
-					<li><div class="subscribe">
+					</ul>
+					<div class="subscribe">
 						<a href="#" class="btn--default">Оформить подписку</a>
-					</div></li>
-				</ul>
-			</div>
-		</div>
-	</header>
-	<main>
-		<div class="message-alert"></div>
-		{% block content %}
-		{% endblock %}
-	</main>
-	<footer>
-		<div class="footer__content">
-			<div class="container">
-				<div class="inner__footer__content">
-					<div class="mini__menu__footer">
-						<a class="item__mini__menu__footer" href="#">Контакты</a>
-						<a class="item__mini__menu__footer" href="#">Помощь</a>
-						<a class="item__mini__menu__footer" href="#">Правообладателям</a>
 					</div>
-					<div class="about__ver__footer">
-						<p class="patch">Patch v2.0</p>
-						<p class="release">Release v1.0.0</p>
-						<p class="years__works__with__copy">© 2017-2020 Libils Team</p>
+					<div class="block_auth--reg_search">
+						<div class="search">
+							<input type="text" id="search" placeholder="Найти?" name="search" data-id="0">
+							<svg width="18" id="searching" height="18" viewBox="0 0 18 18" fill="none"><title></title><path fill-rule="evenodd" clip-rule="evenodd" d="M13.9499 12.4702C15.9598 9.71455 15.6403 5.74064 13.048 3.14826C10.193 0.293337 5.66259 0.195039 2.92892 2.92871C0.195246 5.66238 0.293543 10.1928 3.14847 13.0478C5.74081 15.6401 9.71462 15.9596 12.4703 13.9498C12.5259 14.1145 12.6194 14.2692 12.7506 14.4004L15.4212 17.071C15.8768 17.5266 16.6155 17.5266 17.0711 17.071C17.5267 16.6154 17.5267 15.8767 17.0711 15.4211L14.4005 12.7505C14.2693 12.6193 14.1146 12.5259 13.9499 12.4702ZM11.7161 11.7166C13.6296 9.80299 13.5608 6.63167 11.5624 4.63322C9.56394 2.63478 6.39262 2.56597 4.47905 4.47954C2.56548 6.39311 2.63429 9.56442 4.63274 11.5629C6.63119 13.5613 9.8025 13.6301 11.7161 11.7166Z" fill="#fff"></path></svg>
+						</div>
+
+						<div class="auth_reg">
+							<button class="profile"><img src="{% static 'img/header/profile.svg' %}" alt="profile"><img src="{% static 'img/header/loginArrow.svg' %}" alt="loginArrow"></button><div class="profileMenu " style="display:none;">
+								<div class="topUr"></div>
+								<ul>
+									<li><a href="/account/login">Авторизоваться</a></li>
+									<li><a href="/account/register">Зарегистрироваться</a></li>
+								</ul>
+							</div>								
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+			<div class="mobile__menu">
+				<div class="container">
+					<ul>
+						<li><a href="/movie">Фильмы</a></li>
+						<li><a href="/series">Сериалы</a></li>
+						<li><a href="/mult">Мультфильмы</a></li>
+						<li><a href="/contact">Контакты</a></li>
+						<li><div class="subscribe">
+							<a href="#" class="btn--default">Оформить подписку</a>
+						</div></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		<main>
+			<div class="message-alert"></div>
+			{% block content %}
+			{% endblock %}
+			<div class="functions__site" data-cl="0">
+				<div class="title__functions__site" title="Щелкните чтобы открыть\закрыть">
+					<span>Функции сайта</span>
+				</div>
+				<div class="functions__site__block ">
+					<div class="contents__functions__site" data-counter="6">
+
+						<div class="inner__contents__functions__site" data-idlec="1">
+							<div class="content__functions__site animated" >
+								<div class="title__content__functions__site">
+									<p>История просмотров</p>
+									<span>2019 год</span>
+								</div>
+							</div>	
+							<div class="submenu__contents__functions__site">
+
+							</div>
+						</div>	
+
+						<div class="inner__contents__functions__site" data-idlec="2">
+							<div class="content__functions__site animated" >
+								<div class="title__content__functions__site">
+									<p>Фильтр</p>
+									<span>Категории</span>
+								</div>
+
+							</div>	
+						</div>
+
+						<div class="inner__contents__functions__site" data-idlec="3">
+							<div class="content__functions__site reColors animated notUsePlats" >
+								<div class="title__content__functions__site">
+									<p>Тема сайта</p>
+									<span>Тёмная</span>
+								</div>
+							</div>	
+						</div>	
+
+						<div class="inner__contents__functions__site" data-idlec="4">
+							<div class="content__functions__site  animated" >
+								<div class="title__content__functions__site">
+									<p>Вид отображения</p>
+									<span>Компактно</span>
+								</div>
+							</div>	
+						</div>	
+
+
+						<div class="inner__contents__functions__site" data-idlec="5">
+							<div class="content__functions__site  animated" >
+								<div class="title__content__functions__site">
+									<p>Личный кабинет</p>
+									<span>Для авторизованых</span>
+								</div>
+							</div>	
+						</div>
+
+						<div class="inner__contents__functions__site" data-idlec="6">
+							<div class="content__functions__site  animated" >
+								<div class="title__content__functions__site">
+									<p>Написать поддержке</p>
+									<span>Не стесняйся</span>
+								</div>
+							</div>	
+						</div>	
+
 					</div>
 				</div>
 			</div>
-		</div>
+		</main>
+		<footer>
+			<div class="footer__content">
+				<div class="container">
+					<div class="inner__footer__content">
+						<div class="mini__menu__footer">
+							<a class="item__mini__menu__footer" href="#">Контакты</a>
+							<a class="item__mini__menu__footer" href="#">Помощь</a>
+							<a class="item__mini__menu__footer" href="#">Правообладателям</a>
+						</div>
+						<div class="about__ver__footer">
+							<p class="patch">Patch v2.0</p>
+							<p class="release">Release v1.0.0</p>
+							<p class="years__works__with__copy">© 2017-2020 Libils Team</p>
+						</div>
+					</div>
+				</div>
+			</div>
 			<!-- <div class="soc__icon__copy">
 				<p><a href="https://vk.com/libils_team"><i class="fab fa-vk" aria-hidden="true"></i></a> </p>
 				<p class="copy--me"> © 2020 Copyright: Libils Team</p>
 				<p class="release">Relese v1.0.0 </p>
 				<p class="release">Patch  v1.0.0 </p>
 			</div> -->
-	</footer>
+		</footer>
 
-	<script async="" src="https://kit.fontawesome.com/de8f891afd.js"></script>
-	<script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-  	<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script async="" src="{% static 'js/message.js' %}"></script>
-	<script async="" src="{% static 'js/main.js' %}"></script>
-	<script async="" src="{% static 'js/other.js' %}"></script>
+		<script async="" src="https://kit.fontawesome.com/de8f891afd.js"></script>
+		<script
+		src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		crossorigin="anonymous"></script>
+		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+		<script async="" src="{% static 'js/message.js' %}"></script>
+		<script async="" src="{% static 'js/main.js' %}"></script>
+		<script async="" src="{% static 'js/other.js' %}"></script>
 
-</body>
-</html>
+	</body>
+	</html>

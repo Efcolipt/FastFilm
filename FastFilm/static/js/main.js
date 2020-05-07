@@ -19,8 +19,11 @@ $('.addFavorites').click(function () {
 	if (+sfc == 800){
 		$(this).attr('data-sfc',200);
 		addMess('Добавлено в избранное !', 200);
+		$(this).find('i').removeClass('far fa-heart').addClass('fas fa-heart');
 	}else if (+sfc == 200){
-		addMess('Уже добавленно!', 800);
+		$(this).attr('data-sfc',800);
+		addMess('Убрали из избранного !', 800);
+		$(this).find('i').removeClass('fas fa-heart').addClass('far fa-heart');
 	}
 });
 // Search
@@ -49,10 +52,14 @@ if (pathnameWs == "movie" || pathnameWs == "series" ){
 if (pathnameWs == "see" ){
 	reFilmSeeData();
 	similarSlider();
+	addHistory();
 }
 
 
-
+function addHistory() {
+	let [pheadline,year,quality] = [$('.headline--now--film--watch p > span:last-child').text(),$('.year--film--now--watch p > span:last-child').text(),$('.rait--now--film--watch p > span:last-child').text()];
+	console.log(pheadline+year+quality)	;
+}
 function similarSlider() {
 		$('.similar_slider').slick({
 		infinite: true,
@@ -74,6 +81,8 @@ function similarSlider() {
 	});	
 
 }
+
+
 
 function reFilmSeeData() {
 	let country = $('.country--now--film--watch p').text();
@@ -103,7 +112,6 @@ function reFilmSeeData() {
 function pagination() {
 	let  current_page = window.location.pathname;
 	current_page = current_page.split('/')[2];
-	console.log(current_page);
 	if (  current_page > 5 && ((current_page + 5) < $('.pagination').attr('data-id'))) {
 		$('.pagination').append(`
 			<a  class="pag_item" href="/${pathnameWs}/${+current_page - 1}"><</a>

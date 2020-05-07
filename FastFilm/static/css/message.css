@@ -2,6 +2,7 @@
     position: fixed;
     right: 35px;
     bottom: 30px;
+    z-index: 1000;
 }
 .alert-msg{
 	padding: 13.5px 40px;
@@ -12,5 +13,5 @@
 	margin-bottom: 20px;
 	width: 250px;
 	text-align: center;
-	z-index: 20;
+	z-index: 1120;
 }

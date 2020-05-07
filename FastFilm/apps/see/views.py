@@ -22,6 +22,7 @@ def index(request):
 	url_series_similar = 'https://api.themoviedb.org/3/tv/' + str(series) + '/similar?api_key=' + api_token_db + '&language=ru-RU&page=1'
 
 	if (movie != 0) :
+		link = "see?movie=" + movie
 		movie = requests.get(url_movie).json()
 		movie_tracker = True
 		movie_similar = requests.get(url_movie_similar).json()
@@ -38,6 +39,7 @@ def index(request):
 			errors = 404
 
 	elif( series != 0):
+		link = "see?series=" + series
 		url_imdb__id_series = 'https://api.themoviedb.org/3/tv/' + str(series) + '/external_ids?api_key=' + api_token_db
 		series = requests.get(url_series).json()
 		series_tracker = True
@@ -65,5 +67,7 @@ def index(request):
 		result = series
 	else:
 		result = movie
-	return render(request, 'see/see.html',{'result': result, 'video': video_result, 'series_tracker':series_tracker,'movie_tracker':movie_tracker , 'similar':similar}  )
+	print(result)
+
+	return render(request, 'see/see.html',{'link':link, 'result': result, 'video': video_result, 'series_tracker':series_tracker,'movie_tracker':movie_tracker , 'similar':similar}  )
 	

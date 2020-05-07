@@ -20,17 +20,17 @@ h1,h2,h3,h4,h5,h6{
 	font-weight: bold;
 }
 h1{
-	font-size: 42px;
+	font-size: 56px;
 }
 h2{
-	font-size: 35px;
+	font-size: 48px;
 }
 h3{
 	font-size: 32px;
 }
 
 .container{
-	max-width: 1280px;
+	max-width: 1375px;
 	margin: 0 auto;
 	padding-right: 15px;
 	padding-left: 15px;
@@ -463,12 +463,16 @@ input{
 	margin-bottom: 45px;
 }
 .title--now--film--watch{
-    padding: 18px 0px 18px 20px;
+    padding: 18px 20px 18px 20px;
     margin-top: 0 !important;
     margin-bottom: 25px;
     background-color: #23232366;
     font-size: 24px;
     color: #fff;
+}
+.watch_video{
+	width: 100%;
+	overflow: hidden;
 }
 .sl{
 	margin-top: 0 !important;
@@ -667,7 +671,12 @@ input{
 	 margin-bottom: 20px;
 
 }
-
+.reColorBl{
+	color:#2f2f2f!important;
+}
+.reColorHead{
+	background: #040404e6;
+}
 .contact--block--us p {
 	margin-top: 10px;
 	color:#b5b5b5;
@@ -737,6 +746,94 @@ input{
 }
 .item__mini__menu__footer:hover{
 	color: #33c467;
+}
+.functions__site__block{
+	display: none;
+	overflow: hidden;
+    height: 385px;
+	background:#212121;
+    width: 400px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.contents__functions__site{
+	/*overflow-y: scroll;*/
+    height: 385px;
+}
+.content__functions__site:hover{
+	opacity: .7;
+}
+.content__functions__site{
+	cursor: pointer;
+    transition: opacity .3s ease;
+    padding: 10px;
+    margin: 10px;
+    display: block;
+    background: #353535;
+    border-radius: 3px;
+}
+.close__history__see{
+	cursor: pointer;
+}
+.functions__site{
+	width: 400px;
+    position: fixed;
+    left: 5px;
+    bottom: 0;
+    z-index: 150;
+}
+.title__functions__site{
+	cursor: pointer;
+	user-select: none;
+	font-size: 21px;
+	color:#fff;
+    background: #212121;
+    border-bottom:1px solid #333;
+    padding: 15px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.title__content__functions__site {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	cursor: pointer;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px;
+}
+.title__content__functions__site span {
+    color: #a0a0a0;
+    font-size: 14px;
+}
+.title__content__functions__site p {
+	color:#fff;
+	font-size: 19px;
+	cursor: pointer;
+}
+.imdb-visit__content__history__see{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color:#fff;
+}
+.visit__content__history__see{
+	color: #e2e2e2;
+	font-size: 15.5px;
+}
+.imdb-visit__content__history__see span {
+	color: #fff;
+    font-size: 14px;
+    opacity: 0.9;
+    text-transform: uppercase;
+    background: #0000009c;
+    padding: 5px;
 }
 /*End footer*/
 .quanity--now--film--watch{

@@ -6,35 +6,35 @@
 		<div class="spinner"></div>
 	</div>
 	{%  if  upcoming.status_code == 34 or upcoming.status_code == 7 or top.status_code == 34 or top.status_code == 7   %}
-	<h2 style="color:#fff; text-align: center; margin-top: 20px;margin-bottom: 20px">Ничего не нашел</h2>
+	<h2 class="reColor" style="color:#fff; text-align: center; margin-top: 20px;margin-bottom: 20px">Ничего не нашел</h2>
 	{% else %}
-	<h2 style="color:#fff; text-align: center; margin-top: 20px;margin-bottom: 20px">Популярное</h2>
+	<h2 class="reColor" style="color:#fff; text-align: center; margin-top: 20px;margin-bottom: 20px">Популярное</h2>
 	<div class="movies">
 		{% for i in upcoming.results %}
 		<div class="new_movie" data-id="{{i.id}}">
 			<a href="/see?movie={{i.id}}" class="btn_href_see">
 				<div class="img--poster"><img src="https://image.tmdb.org/t/p/w500/{{i.poster_path}}" /></div>
 				<div class="about--film">
-					<div class="title--film"><p class="title__df__quality">{{i.title}}</p></div>
+					<div class="title--film"><p class="title__df__quality reColor">{{i.title}}</p></div>
 					<div class="vote_average"> <p>Рейтинг imdb: {{i.vote_average}}</p></div>
 					<div class="quality__average"><p>HD</p></div>
-					<div class="year_genre--film" style="display: none;"><p>{{i.release_date}}</p></div>
+					<div class="year_genre--film" style="display: none;"><p class="reColor">{{i.release_date}}</p></div>
 				</div>
 			</a>
 		</div>
 		{%endfor%}
 	</div>
-	<h2 style="color:#fff; text-align: center; margin-top: 20px;margin-bottom: 20px">Fastfilm.ru рекомендует</h2>
+	<h2 class="reColor" style="color:#fff; text-align: center; margin-top: 20px;margin-bottom: 20px">Fastfilm.ru рекомендует</h2>
 	<div class="movies">
 		{% for i in top.results %}
 		<div class="new_movie" data-id="{{i.id}}">
 			<a href="/see?movie={{i.id}}" class="btn_href_see">
 				<div class="img--poster"><img src="https://image.tmdb.org/t/p/w500/{{i.poster_path}}" /></div>
 				<div class="about--film">
-					<div class="title--film"><p class="title__df__quality">{{i.title}}</p></div>
+					<div class="title--film"><p class="reColor title__df__quality">{{i.title}}</p></div>
 					<div class="vote_average"> <p>Рейтинг imdb: {{i.vote_average}}</p></div>
 					<div class="quality__average"><p>HD</p></div>
-					<div class="year_genre--film" style="display: none;"><p>{{i.release_date}}</p></div>
+					<div class="year_genre--film " style="display: none;"><p class="reColor">{{i.release_date}}</p></div>
 				</div>
 			</a>
 		</div>
@@ -45,8 +45,8 @@
 <div class="contact--block--us">
 	<div class="container">
 		<div class="movie__about__contact">
-			<h2>Fast Film онлайн кинотеатр</h2>
-			<p>Смот­реть он­лайн фильмы,сериалы,мультфильмы - в хо­ро­шем ка­че­стве на FastFilm.ru . На на­шем сай­те вы мо­же­те смот­реть он­лайн са­мые раз­но­об­раз­ные се­ри­а­лы, филь­мы. Все ви­део до­ступ­ны для про­смот­ра на смарт­фо­нах, план­ше­тах, на экра­нах ва­ших ком­пью­те­ров. FastFilm.ru – это кон­тент для людей.</p>
+			<h2 class="reColor">Fast Film онлайн кинотеатр</h2>
+			<p class="reColor">Смот­реть он­лайн фильмы,сериалы,мультфильмы - в хо­ро­шем ка­че­стве на FastFilm.ru . На на­шем сай­те вы мо­же­те смот­реть он­лайн са­мые раз­но­об­раз­ные се­ри­а­лы, филь­мы. Все ви­део до­ступ­ны для про­смот­ра на смарт­фо­нах, план­ше­тах, на экра­нах ва­ших ком­пью­те­ров. FastFilm.ru – это кон­тент для людей.</p>
 		</div>
 	</div>
 </div>
