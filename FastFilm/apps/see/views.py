@@ -65,7 +65,7 @@ def index(request):
 		
 	if series_tracker:
 		result = series
-	else:
+	else: 
 		result = movie
 
 	return render(request, 'see/see.html',{'link':link, 'result': result, 'video': video_result, 'series_tracker':series_tracker,'movie_tracker':movie_tracker , 'similar':similar}  )

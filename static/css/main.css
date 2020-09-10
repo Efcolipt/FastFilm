@@ -273,19 +273,15 @@ input{
 	padding: 15px 10px;
 	font-size: 18px;
 	width: 310px;
-/*    border-radius: 0px;
-    border: 0;
-    color:#fff;
-    border-bottom: 1px solid #4e4e4e;
-    background: inherit;
-    font-size: 18px;*/
 }
 .content_auth_reg > form > p> input[name="whoami"]{
 	font-size: 18px;
 	margin-top: 5px;
 	align-items: center;
 }
-
+.submenu__contents__functions__site a:hover {
+	opacity: .7;
+}
 /* Movies show */
 .moviesSerach .new_movie{
 	margin: 0 23px 40px!important;	
@@ -329,9 +325,6 @@ input{
 }
 .vote_average{
 	position: absolute;
-	/* display: none; */
-	/* top: -6px; */
-	/* bottom: 76px; */
 	top: -31px;
 	background: #0000009c;
 	left: 0px;
@@ -650,7 +643,6 @@ input{
 .report {
 	color: #fff;
 	font-size: 25px;
-	/* margin-top: 70px; */
 	text-align: center;
 }
 .close_searching{
@@ -785,15 +777,18 @@ input{
 .functions__site__block{
 	display: none;
 	overflow: hidden;
-	height: 405px;
+	height: 415px;
 	background:#212121;
 	width: 400px;
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
 }
 .contents__functions__site{
-	/*overflow-y: scroll;*/
 	height: 385px;
+}
+.back__to__functions__site{
+	color: #696969;
+    font-size: 14px;
 }
 .content__functions__site:hover{
 	opacity: .7;
@@ -827,6 +822,13 @@ input{
 	z-index: 150;
 }
 .title__functions__site{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	cursor: pointer;
 	user-select: none;
 	font-size: 21px;
@@ -856,7 +858,7 @@ input{
 	color:#fff;
 	font-size: 19px;
 	cursor: pointer;
-	width: 245px;
+	width: 210px;
 }
 .imdb-visit__content__history__see{
 	display: -webkit-flex;
@@ -884,7 +886,6 @@ input{
 .quanity--now--film--watch{
 	margin-left: 8px;
 	font-size: 14px;
-	/* font-weight: bold; */
 	color: #9e9d9d;
 	border-radius: 4px;
 	border: 1px solid #333232;
