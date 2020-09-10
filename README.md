@@ -8,4 +8,4 @@ Video for install python - https://www.youtube.com/watch?v=UvcQlPZ8ecA
 In order to install django, run the command line using hotkey Win + R and write "cmd", then press enter. 
 Go to the project folder and write the command "python -m pip install Django", press enter at all stages we press enter.
 # Important 
-Follow the news in our group and on the github about new updates, download them in time to have new features and not have problems with viewing
+Follow the news on the github about new updates, download them in time to have new features and not have problems with viewing
