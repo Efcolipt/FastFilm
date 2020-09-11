@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'home',
     'search',
     'users',
+    'personalArea',
 
     #crispy
     'crispy_forms'

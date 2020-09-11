@@ -10,5 +10,6 @@ urlpatterns = [
 	path('see/', include('see.urls')),
     path('admin/', admin.site.urls),
     path('search/', include('search.urls')),
-    path('account/', include('users.urls'))
+    path('account/', include('users.urls')),
+    path('personal/', include('personalArea.urls'))
 ]
