@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'series',
     'see',
     'home',
-    'search'
+    'search',
+    'users'
 ]
 
 MIDDLEWARE = [
