@@ -15,7 +15,7 @@ def registration(request):
 		if form.is_valid():
 			form.save()
 			username = form.cleaned_data.get('username')
-			return HttpResponseRedirect('/home')
+			return HttpResponseRedirect('/account/authorization')
 	return render(request, 'account/registration.html',{'form':form})
 
 

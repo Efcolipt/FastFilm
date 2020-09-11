@@ -11,5 +11,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('search/', include('search.urls')),
     path('account/', include('users.urls')),
-    path('personal/', include('personalArea.urls'))
+    path('personal/', include('personalArea.urls')),
+    
 ]

@@ -1,4 +1,7 @@
 console.time("Module enabled Other ");
+let currentlyIdLec = 0;
+let contents = [];
+
 // COOKIE 
 function getCookie(name) {
 	let cookie = " " + document.cookie;
@@ -19,27 +22,27 @@ function getCookie(name) {
 	}
 	return(setStr);
 }
- 
+
 function set_cookie ( name, value, exp_y, exp_m, exp_d, path, domain, secure )
 {
-  var cookie_string = name + "=" + escape ( value );
- 
-  if ( exp_y )
-  {
-    var expires = new Date ( exp_y, exp_m, exp_d );
-    cookie_string += "; expires=" + expires.toGMTString();
-  }
- 
-  if ( path )
-        cookie_string += "; path=" + escape ( path );
- 
-  if ( domain )
-        cookie_string += "; domain=" + escape ( domain );
-  
-  if ( secure )
-        cookie_string += "; secure";
-  
-  document.cookie = cookie_string;
+	var cookie_string = name + "=" + escape ( value );
+
+	if ( exp_y )
+	{
+		var expires = new Date ( exp_y, exp_m, exp_d );
+		cookie_string += "; expires=" + expires.toGMTString();
+	}
+
+	if ( path )
+		cookie_string += "; path=" + escape ( path );
+
+	if ( domain )
+		cookie_string += "; domain=" + escape ( domain );
+
+	if ( secure )
+		cookie_string += "; secure";
+
+	document.cookie = cookie_string;
 }
 
 function deleteCookie(name) {
@@ -59,11 +62,11 @@ $('.close_searching').click(function () {
 
 // Header
 let lastScrollTop = 0;
-let header = $('header');
+let $header = $('header');
 $(window).scroll(function(event){
 	let st = $(this).scrollTop();
 	if (window.pageYOffset <= 0) {
-		header.removeClass('hideHeader').removeClass('showHeader');
+		$header.removeClass('hideHeader').removeClass('showHeader');
 		$('.mobile__menu').removeClass('showMobileMenu');
 		$('.mobile__menu').stop().slideUp(300);
 		$('.mobile__menu').addClass('topmobileBg');
@@ -72,9 +75,9 @@ $(window).scroll(function(event){
 			$('.mobile__menu').stop().slideUp(300);
 			$('.mobile__menu').removeClass('showMobileMenu');
 			$(".profileMenu").removeClass('showProfileMenu').stop().fadeOut(300);
-			header.addClass('hideHeader').removeClass('showHeader');
+			$header.addClass('hideHeader').removeClass('showHeader');
 		} else{
-			header.addClass('showHeader').removeClass('hideHeader');
+			$header.addClass('showHeader').removeClass('hideHeader');
 		}
 	}
 
@@ -84,6 +87,26 @@ $(window).scroll(function(event){
 $('.profile').click(function(){
 	$('.profileMenu').toggleClass('showProfileMenu');
 });
+
+// $('.back__to__functions__site').click(function(){
+// 	let j = 1;
+// 	$('.title__functions__site').off();
+// 	$(".inner__contents__functions__site[data-idLec="+currentlyIdLec+"]").find('.submenu__contents__functions__site').html("");
+// 	$(".inner__contents__functions__site[data-idLec="+currentlyIdLec+"]").find('.content__functions__site').removeClass("marNone");
+
+
+// 		for (let i = contents.length + 1; i > j; j++) {
+// 			if (+currentlyIdLec != j) {
+// 				$('.inner__contents__functions__site[data-idlec='+ j +']').html(contents[j]);
+// 			}
+// 			console.log("J: "+j+" ;Content: "+ contents[j])
+// 		}
+// 		// setTimeout(function () {
+// 		// 	$('.content__functions__site ');
+// 		// },300);
+
+		
+// });
 // Mobile menu
 $('.iconBarMobile').click(function(){
 	if (window.pageYOffset > 0) {
@@ -135,9 +158,9 @@ $('.reColors').click(function () {
 });
 
 if (getCookie('color') == 'black') {
-	 reColors(1);
+	reColors(1);
 }else{
-	 reColors(0);
+	reColors(0);
 }
 
 function reColors(color) {
@@ -167,4 +190,45 @@ function reColors(color) {
 		document.cookie = "color=black; path=/";
 	}
 }
+
+$('.content__functions__site').click(function (e) {
+	let id = $(this).parent().attr('data-idlec');
+	currentlyIdLec = id;
+	if ($(this).parent().find('.submenu__contents__functions__site').length > 0 && !$(this).hasClass('notUsePlats') ) {
+
+			$(this).addClass('marNone');
+
+			for (let i = $('.inner__contents__functions__site').length; i >= 0; i--) {
+				if (i != +id) {
+					contents.push($('.inner__contents__functions__site[data-idlec='+ i +']').html());
+				}
+			}
+			$('.content__functions__site').not(this).addClass('fadeOutLeft deleteForPlats');
+			setTimeout(function () {
+				$('.deleteForPlats').parent().html('');
+			},300);
+
+			if ( !$(this).parent().find('.submenu__contents__functions__site a').length > 0 && id == 1){
+				for (var i = dataHistory.length; i > 0; i--) {
+					$(this).parent().find('.submenu__contents__functions__site ').append(`
+						<a href="/${dataHistory[i - 1][3]}" style="display:block;">
+						<div class="submenu__content__functions__site blefs animated " style="margin:10px 0;">
+						<div class="title__content__functions__site">
+						<p>${dataHistory[i - 1][1]}</p>
+						<span>${dataHistory[i - 1][0]} год</span>
+						</div>
+						</div>
+						</a>
+						`);
+				}
+				$('.contents__functions__site').css('overflow-y','scroll');
+		}
+
+	}
+		console.log(currentlyIdLec);
+		console.log(contents);
+		console.log(contents[1]);
+		$('.content__functions__site').off();
+
+});
 console.timeEnd("Module enabled Other ");
