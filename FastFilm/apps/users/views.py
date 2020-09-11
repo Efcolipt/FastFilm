@@ -19,9 +19,5 @@ def registration(request):
 	return render(request, 'account/registration.html',{'form':form})
 
 
-def auth(request):
-	return render(request, 'account/authorization.html')
-
-def logout(request):
-	return HttpResponseRedirect('/home')
+def authorization(request):
 	return render(request, 'account/authorization.html')
