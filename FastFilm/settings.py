@@ -44,7 +44,10 @@ INSTALLED_APPS = [
     'see',
     'home',
     'search',
-    'users'
+    'users',
+
+    #crispy
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -126,6 +129,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+LOGIN_REDIRECT_URL = "/home"
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')

@@ -1,5 +1,18 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% block title %}Регистрация{% endblock %}
 {%block content%}
-asd
+<div class="container">
+	<div class="form__auth-register">
+		<h2>Регистрация</h2>
+		<form  method="POST">
+			{% csrf_token %}
+			{{ form|crispy }}
+			<p><small>* - обязательно для заполнения</small></p>
+			<button type="submit" class="btn--default">Зарегистрироваться</button>
+		</form>
+		<hr>
+		<p>Уже зарегистрированы ? <a href="/account/authorization">Авторизоваться</a></p>
+	</div>
+</div>
 {%endblock%}

@@ -67,12 +67,21 @@
 						</div>
 
 						<div class="auth_reg">
-							<button class="profile"><img src="{% static 'img/header/profile.svg' %}" alt="profile"><img src="{% static 'img/header/loginArrow.svg' %}" alt="loginArrow"></button><div class="profileMenu " style="display:none;">
+							<button class="profile"><img src="{% static 'img/header/profile.svg' %}" alt="profile"><img src="{% static 'img/header/loginArrow.svg' %}" alt="loginArrow"></button>
+							<div class="profileMenu " style="display:none;">
 								<div class="topUr"></div>
-								<ul>
-									<li><a href="/account/login">Авторизоваться</a></li>
-									<li><a href="/account/register">Зарегистрироваться</a></li>
-								</ul>
+								{% if user.is_authenticated %}
+									<ul>
+										<li><a href="/account/authorization">Профиль</a></li>
+										<li><a href="/account/exit">Выход</a></li>
+									</ul>
+								{% else %}
+
+									<ul>
+										<li><a href="/account/authorization">Авторизоваться</a></li>
+										<li><a href="/account/registration">Зарегистрироваться</a></li>
+									</ul>
+								{% endif %}
 							</div>								
 						</div>
 
