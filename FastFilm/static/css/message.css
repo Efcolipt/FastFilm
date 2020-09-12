@@ -5,13 +5,13 @@
     z-index: 1000;
 }
 .alert-msg{
-	padding: 13.5px 40px;
+    padding: 13.5px 40px;
     font-size: 20px;
     background: #272727;
     border-radius: 4px;
-	color:#fff;
-	margin-bottom: 20px;
-	width: 250px;
-	text-align: center;
-	z-index: 1120;
+    color:#fff;
+    margin-bottom: 20px;
+    width: 250px;
+    text-align: center;
+    z-index: 1120;
 }
