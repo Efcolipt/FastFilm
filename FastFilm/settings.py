@@ -25,7 +25,7 @@ SECRET_KEY = '0=)1)w5g7_32t1fc)g*_x^v@)0hpua!!=q(lnj=g!^*01&^ys1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['localhost',]
+ALLOWED_HOSTS = ['https://gentle-plateau-98502.herokuapp.com',]
 
 
 # Application definition
