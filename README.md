@@ -1,6 +1,6 @@
 # How to run
 First, download the project, then open the command line using hotkey Win + R and write command "cmd". 
-In cmd go to the folder with the project, write the command "pip install requests", then write command "python manage.py runserver".
+In cmd go to the folder with the project, write the command "pip install requests" , then write command "python manage.py runserver".
 Open your browser and write localhost: 8000 in the address bar, now everything is ready, just click on any movie or TV show you like and enjoy watching, good luck
 # If you did not install python or django
 Go to the official python website and download the latest version python. 
