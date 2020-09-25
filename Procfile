@@ -1,1 +1,0 @@
-web: gunicorn FastFilm.wsgi --log-file -
