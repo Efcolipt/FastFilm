@@ -64,13 +64,10 @@ $(window).scroll(function(event){
 	let st = $(this).scrollTop();
 	if (window.pageYOffset <= 0) {
 		header.removeClass('hideHeader').removeClass('showHeader');
-		$('.mobile__menu').removeClass('showMobileMenu');
-		$('.mobile__menu').stop().slideUp(300);
-		$('.mobile__menu').addClass('topmobileBg');
+		$('.mobile__menu').removeClass('showMobileMenu').stop().slideUp(300).addClass('topmobileBg');
 	}else{
 		if (st > lastScrollTop){
-			$('.mobile__menu').stop().slideUp(300);
-			$('.mobile__menu').removeClass('showMobileMenu');
+			$('.mobile__menu').stop().slideUp(300).removeClass('showMobileMenu');
 			$(".profileMenu").removeClass('showProfileMenu').stop().fadeOut(300);
 			header.addClass('hideHeader').removeClass('showHeader');
 		} else{
@@ -156,7 +153,7 @@ function reColors(color) {
 	}else{
 		$('.reColors').attr('data-color',0);
 		$('.reColors').find('span').text('Тёмная');
-		$('body').css('background','url("../img/bg/bg.png")');
+		$('body').css('background','url(' + window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + "/" + 'static/img/img/bg/bg.png")');
 		$('.reColor').removeClass('reColorBl');
 		$('.footer__content').css('background','#23232340');
 		$('header').removeClass('reColorHead');

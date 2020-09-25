@@ -1,10 +1,9 @@
 console.time("Module enabled Main ");
 let hrefCurrent  = window.location.href;
 let protocoll 	 = document.location.protocol;
-$('.waitingSpin').stop().fadeOut(1000);
 let pathnameWs = window.location.pathname;
 pathnameWs = pathnameWs.split('/')[1];
-
+$('.waitingSpin').stop().fadeOut(1000);
 
 function reYear() {
 	$('.new_movie').each(function(index, el) {
@@ -58,7 +57,6 @@ if (pathnameWs == "see" ){
 
 function addHistory() {
 	let [pheadline,year,quality] = [$('.headline--now--film--watch p > span:last-child').text(),$('.year--film--now--watch p > span:last-child').text(),$('.rait--now--film--watch p > span:last-child').text()];
-	console.log(pheadline+year+quality)	;
 }
 function similarSlider() {
 		$('.similar_slider').slick({
